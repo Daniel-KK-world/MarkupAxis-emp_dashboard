@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #f1f1f1;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1, h2 {
+    color: #00bcd4;
+    margin-bottom: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.details p {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
 }
 
-.App-link {
-  color: #61dafb;
+input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.2rem;
+    border-radius: 8px;
+    background-color: #2c2c2c;
+    color: #f1f1f1;
+    border: 1px solid #333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="text"]:focus {
+    outline: none;
+    border-color: #00bcd4;
+}
+
+label {
+    margin-bottom: 0.3rem;
+    display: block;
+    color: #ccc;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.btn-save {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-back {
+    background-color: #555;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-info {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.errorMsg {
+    color: #f44336;
+    font-size: 0.85rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+th, td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #333;
+    text-align: left;
+}
+
+tr:hover {
+    background-color: #2a2a2a;
+}
+
+a.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+a.btn-add {
+    background-color: #00bcd4;
+    color: white;
+}
+
+a.btn-add:hover {
+    background-color: #0097a7;
 }

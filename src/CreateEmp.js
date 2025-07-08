@@ -1,4 +1,4 @@
-import { use, useState } from 'react';
+import { useState } from 'react';
 import{ Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -42,7 +42,7 @@ export default function CreateEmp(){
         <form onSubmit={handleSubmit}>
             <label htmlFor="id">ID</label>
             <input type="text" id="id" name="id"value={id} required onChange={e=> setId(e.target.value)} onMouseDown={() => setValidation(true)}></input>
-            {id.length == 0 && validation && <span className='errorMsg'>Please Enter your ID:</span>}
+            {id.length === 0 && validation && <span className='errorMsg'>Please Enter your ID:</span>}
 
             <label htmlFor="name">Name</label>
             <input type="text" id="name" name="name" value={name} required onChange={e=> setName(e.target.value)} onMouseDown={() => setValidation(true)} ></input>

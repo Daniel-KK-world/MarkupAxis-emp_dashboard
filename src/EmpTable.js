@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { data, Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function EmpTable() {
   const [employees, setEmployees] = useState([]);
