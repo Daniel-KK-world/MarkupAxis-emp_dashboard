@@ -5,9 +5,28 @@ export default function EmpTable() {
   const [employees, setEmployees] = useState([]);
   const navigate = useNavigate();
   const DisplayDetails = (id) => {
-    console.log("Employee ID:", id);
-    // Navigate to the view details page. 
     navigate('/employee/view/' + id);
+  }
+  const EditDetails = (id) => {
+    navigate('/employee/edit/' + id);
+  }
+  const RemoveDetails = (id) => {
+    if (window.confirm("Are you sure you want to delete this employee?")) {
+      fetch('http://localhost:8000/employees/' + id, {
+        method: "DELETE"
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Failed to delete employee");
+        }
+        return res.json();
+      })
+      .then(() => {
+        alert("Employee deleted successfully!");
+        setEmployees(employees.filter(emp => emp.id !== id));
+      })
+      .catch(err => console.error("Delete error:", err.message));
+    }
   }
 
   useEffect(() => {
@@ -29,7 +48,7 @@ export default function EmpTable() {
                 <table>
                     <thead>
                         <tr>
-                           <th>ID</th> 
+                           <th>SL No.</th> 
                            <th>Name</th> 
                            <th>Department</th> 
                            <th>Phone</th> 
@@ -38,16 +57,18 @@ export default function EmpTable() {
                     </thead>
                     <tbody>
                         {
-                            employees && employees.map((item) => (
+                            employees && employees.map((item, index) => (
                                 <tr key={item.id}>
-                            <td>{item.id}</td>
+                            <td>{index+1}</td>
                             <td>{item.name}</td>
                             <td>{item.department}</td>
                             <td>{item.phone}</td>
                             <td>
-                                <button onClick={()=> DisplayDetails(item.id)} href="#" className="btn btn-info">View</button> 
-                                <button href="#" className="btn btn-primary">Edit</button>
-                                <button href="#" className="btn btn-danger">Delete</button>
+                                <button onClick={()=> DisplayDetails(item.id)} className="btn btn-info">View</button>
+
+                                <button onClick={()=> EditDetails(item.id)} className="btn btn-primary">Edit</button>
+
+                                <button onClick={()=> RemoveDetails(item.id)} className="btn btn-danger">Delete</button>
                             </td>
                         </tr>
                             )

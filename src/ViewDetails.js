@@ -28,7 +28,7 @@ export default function ViewDetails() {
         <p style={{ color: "red" }}>Employee not found.</p>
       ) : employeeData?.id ? (
         <div className="details">
-          <p><strong>ID:</strong> {employeeData.id}</p>
+          <p><strong>Employee ID:</strong> {employeeData.id}</p>
           <p><strong>Name:</strong> {employeeData.name}</p>
           <p><strong>Department:</strong> {employeeData.department}</p>
           <p><strong>Phone:</strong> {employeeData.phone}</p>
