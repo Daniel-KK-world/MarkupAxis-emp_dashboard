@@ -1,0 +1,22 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "department": "Engineering",
+            "phone": "1234567890" 
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "department": "Management",
+            "phone": "9876543210"
+        },
+        {
+            "id": 3,
+            "name": "Alice Johnson",
+            "department": "Design",
+            "phone": "5551234567"
+        }
+    ]
+}
