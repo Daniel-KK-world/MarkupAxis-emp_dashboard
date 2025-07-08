@@ -2,37 +2,47 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function EmpTable() {
+  // Store all employee records
   const [employees, setEmployees] = useState([]);
+
+  // Store the user's search input
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Used to navigate programmatically
   const navigate = useNavigate();
 
+  // Navigate to view page
   const DisplayDetails = (id) => {
     navigate('/employee/view/' + id);
-  }
+  };
 
+  // Navigate to edit page
   const EditDetails = (id) => {
     navigate('/employee/edit/' + id);
-  }
+  };
 
+  // Delete employee with confirmation
   const RemoveDetails = (id) => {
     if (window.confirm("Are you sure you want to delete this employee?")) {
       fetch('http://localhost:8000/employees/' + id, {
         method: "DELETE"
       })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Failed to delete employee");
-        }
-        return res.json();
-      })
-      .then(() => {
-        alert("Employee deleted successfully!");
-        setEmployees(employees.filter(emp => emp.id !== id));
-      })
-      .catch(err => console.error("Delete error:", err.message));
+        .then(res => {
+          if (!res.ok) {
+            throw new Error("Failed to delete employee");
+          }
+          return res.json();
+        })
+        .then(() => {
+          alert("Employee deleted successfully!");
+          // Remove deleted employee from UI
+          setEmployees(employees.filter(emp => emp.id !== id));
+        })
+        .catch(err => console.error("Delete error:", err.message));
     }
-  }
+  };
 
+  // Fetch employee data on component mount
   useEffect(() => {
     fetch('http://localhost:8000/employees')
       .then(response => response.json())
@@ -45,6 +55,7 @@ export default function EmpTable() {
       });
   }, []);
 
+  // Filter employees based on search input
   const filteredEmployees = employees.filter(emp =>
     emp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     emp.department.toLowerCase().includes(searchTerm.toLowerCase())
@@ -54,6 +65,7 @@ export default function EmpTable() {
     <div className="container">
       <h2 className="text-center">Employee Records</h2>
 
+      {/* Search bar and add button */}
       <div className="top-bar">
         <input
           type="text"
@@ -65,6 +77,7 @@ export default function EmpTable() {
         <Link to="/employee/create" className="btn btn-add">Add New Employee</Link>
       </div>
 
+      {/* Employee table */}
       <div className="table-container">
         <table>
           <thead>
@@ -92,8 +105,11 @@ export default function EmpTable() {
                 </tr>
               ))
             ) : (
+              // Fallback UI when no matching results found
               <tr>
-                <td colSpan="5" style={{ textAlign: "center", color: "#ccc" }}>No matching records found.</td>
+                <td colSpan="5" style={{ textAlign: "center", color: "#ccc" }}>
+                  No matching records found.
+                </td>
               </tr>
             )}
           </tbody>

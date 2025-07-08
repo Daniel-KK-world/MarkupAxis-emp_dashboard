@@ -1,124 +1,132 @@
+/* Global styles */
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #121212;
-    color: #f1f1f1;
-    font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', sans-serif;
 }
 
+/* Container for most pages */
 .container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
+/* Headers */
 h1, h2 {
-    color: #00bcd4;
-    margin-bottom: 1.5rem;
+  color: #00bcd4;
+  margin-bottom: 1.5rem;
 }
 
+/* For the ViewDetails layout */
 .details p {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
 }
 
+/* Input fields */
 input[type="text"] {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1.2rem;
-    border-radius: 8px;
-    background-color: #2c2c2c;
-    color: #f1f1f1;
-    border: 1px solid #333;
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.2rem;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  color: #f1f1f1;
+  border: 1px solid #333;
 }
 
 input[type="text"]:focus {
-    outline: none;
-    border-color: #00bcd4;
+  outline: none;
+  border-color: #00bcd4;
 }
 
 label {
-    margin-bottom: 0.3rem;
-    display: block;
-    color: #ccc;
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #ccc;
 }
 
+/* Buttons */
 .btn {
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: bold;
-    margin-right: 10px;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 .btn-save {
-    background-color: #4caf50;
-    color: white;
+  background-color: #4caf50;
+  color: white;
 }
 
 .btn-back {
-    background-color: #555;
-    color: white;
+  background-color: #555;
+  color: white;
 }
 
 .btn-danger {
-    background-color: #f44336;
-    color: white;
+  background-color: #f44336;
+  color: white;
 }
 
 .btn-info {
-    background-color: #00bcd4;
-    color: white;
+  background-color: #00bcd4;
+  color: white;
 }
 
+/* Error messages */
 .errorMsg {
-    color: #f44336;
-    font-size: 0.85rem;
+  color: #f44336;
+  font-size: 0.85rem;
 }
 
+/* Table styles */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1.5rem;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
 }
 
 th, td {
-    padding: 0.8rem;
-    border-bottom: 1px solid #333;
-    text-align: left;
+  padding: 0.8rem;
+  border-bottom: 1px solid #333;
+  text-align: left;
 }
 
 tr:hover {
-    background-color: #2a2a2a;
+  background-color: #2a2a2a;
 }
 
+/* Add/Edit buttons inside table */
 a.btn {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: bold;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
 }
 
 a.btn-add {
-    background-color: #00bcd4;
-    color: white;
+  background-color: #00bcd4;
+  color: white;
 }
 
 a.btn-add:hover {
-    background-color: #0097a7;
+  background-color: #0097a7;
 }
 
+/* Search bar */
 .search-bar {
   width: 60%;
   padding: 0.6rem 1rem;
@@ -135,15 +143,11 @@ a.btn-add:hover {
   border: 1px solid #00bcd4;
 }
 
+/* Layout wrapper for top bar */
 .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 1rem;
-}
-
-.btn-add {
-  background-color: #00bcd4;
-  color: white;
 }
