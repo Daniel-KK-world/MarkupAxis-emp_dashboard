@@ -12,8 +12,8 @@ function App() {
      <Routes>
       <Route path="/" element={<EmpTable/>}></Route>
       <Route path="/employee/create" element={<CreateEmp/>}></Route>
-      <Route path="/employee/edit/:employee_id" element={<EditEmp/>}></Route>
-      <Route path="/employee/view/:employee_id" element={<ViewDetails/>}></Route>
+      <Route path="/employee/edit/:employeeId" element={<EditEmp/>}></Route>
+      <Route path="/employee/view/:employeeId" element={<ViewDetails/>}></Route>
 
      </Routes>
      </BrowserRouter>

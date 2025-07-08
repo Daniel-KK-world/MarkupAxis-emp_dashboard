@@ -54,7 +54,7 @@ export default function CreateEmp(){
 
             <label htmlFor="phone">Phone</label>
             <input type="text" id="phone" name="phone"value={phone}   required onChange={e=> setPhone(e.target.value)} onMouseDown={() => setValidation(true)} ></input>
-            {name.length < 10 && validation && <span className='errorMsg'>Please Enter a valid Phone number:</span>}
+            {phone.length < 10 && validation && <span className='errorMsg'>Please Enter a valid Phone number:</span>}
 
             <div>
             <button className="btn btn-save">Save</button>

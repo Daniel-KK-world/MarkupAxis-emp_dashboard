@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react';
-import { data, Link } from 'react-router-dom';
+import { data, Link, useNavigate } from 'react-router-dom';
 
 export default function EmpTable() {
   const [employees, setEmployees] = useState([]);
+  const navigate = useNavigate();
+  const DisplayDetails = (id) => {
+    console.log("Employee ID:", id);
+    // Navigate to the view details page. 
+    navigate('/employee/view/' + id);
+  }
 
   useEffect(() => {
     fetch('http://localhost:8000/employees')
@@ -33,15 +39,15 @@ export default function EmpTable() {
                     <tbody>
                         {
                             employees && employees.map((item) => (
-                                <tr>
+                                <tr key={item.id}>
                             <td>{item.id}</td>
                             <td>{item.name}</td>
                             <td>{item.department}</td>
                             <td>{item.phone}</td>
                             <td>
-                                <a href="#" className="btn btn-info">View</a> 
-                                <a href="#" className="btn btn-primary">Edit</a>
-                                <a href="#" className="btn btn-danger">Delete</a>
+                                <button onClick={()=> DisplayDetails(item.id)} href="#" className="btn btn-info">View</button> 
+                                <button href="#" className="btn btn-primary">Edit</button>
+                                <button href="#" className="btn btn-danger">Delete</button>
                             </td>
                         </tr>
                             )
