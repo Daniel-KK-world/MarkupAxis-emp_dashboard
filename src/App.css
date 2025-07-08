@@ -118,3 +118,32 @@ a.btn-add {
 a.btn-add:hover {
     background-color: #0097a7;
 }
+
+.search-bar {
+  width: 60%;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #2c2c2c;
+  color: #f1f1f1;
+  margin-bottom: 1rem;
+  margin-right: 10px;
+}
+
+.search-bar:focus {
+  outline: none;
+  border: 1px solid #00bcd4;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.btn-add {
+  background-color: #00bcd4;
+  color: white;
+}

@@ -3,13 +3,17 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function EmpTable() {
   const [employees, setEmployees] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+
   const DisplayDetails = (id) => {
     navigate('/employee/view/' + id);
   }
+
   const EditDetails = (id) => {
     navigate('/employee/edit/' + id);
   }
+
   const RemoveDetails = (id) => {
     if (window.confirm("Are you sure you want to delete this employee?")) {
       fetch('http://localhost:8000/employees/' + id, {
@@ -40,42 +44,61 @@ export default function EmpTable() {
         console.error("Fetch error:", error.message);
       });
   }, []);
-    return(
-        <div className ="container">
-            <h2 className="text-center">Employee Records</h2>
-            <div className="table-container">
-                <Link to="/employee/create" className="btn btn-add">Add New Employee</Link>
-                <table>
-                    <thead>
-                        <tr>
-                           <th>SL No.</th> 
-                           <th>Name</th> 
-                           <th>Department</th> 
-                           <th>Phone</th> 
-                           <th>Actions</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            employees && employees.map((item, index) => (
-                                <tr key={item.id}>
-                            <td>{index+1}</td>
-                            <td>{item.name}</td>
-                            <td>{item.department}</td>
-                            <td>{item.phone}</td>
-                            <td>
-                                <button onClick={()=> DisplayDetails(item.id)} className="btn btn-info">View</button>
 
-                                <button onClick={()=> EditDetails(item.id)} className="btn btn-primary">Edit</button>
+  const filteredEmployees = employees.filter(emp =>
+    emp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    emp.department.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-                                <button onClick={()=> RemoveDetails(item.id)} className="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                            )
-                            )}
-                    </tbody>
-                </table>
-            </div>
-        /</div>
-    )
+  return (
+    <div className="container">
+      <h2 className="text-center">Employee Records</h2>
+
+      <div className="top-bar">
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Search by name or department..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <Link to="/employee/create" className="btn btn-add">Add New Employee</Link>
+      </div>
+
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>SL No.</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredEmployees.length > 0 ? (
+              filteredEmployees.map((item, index) => (
+                <tr key={item.id}>
+                  <td>{index + 1}</td>
+                  <td>{item.name}</td>
+                  <td>{item.department}</td>
+                  <td>{item.phone}</td>
+                  <td>
+                    <button onClick={() => DisplayDetails(item.id)} className="btn btn-info">View</button>
+                    <button onClick={() => EditDetails(item.id)} className="btn btn-primary">Edit</button>
+                    <button onClick={() => RemoveDetails(item.id)} className="btn btn-danger">Delete</button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" style={{ textAlign: "center", color: "#ccc" }}>No matching records found.</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 }
