@@ -14,19 +14,23 @@ A simple and responsive employee management dashboard built with **React** for t
 
 ### ➕ Add New Employee
 
-![Add Employee](./empdashboard/screenshots/add_employee.JPG)
+![dashboard](https://github.com/user-attachments/assets/44539c57-8376-4c58-8768-6a240a444d68)
+
 
 ### Edit Employee
 
-![Edit Employee](./empdashboard/screenshots/edit_emplooyee_details1.JPG)
-(./empdashboard/screenshots/edit_employee_details_2.JPG)
-(./empdashboard/screenshots/edit_employee_details_3.JPG)
+![edit_emplooyee_details1](https://github.com/user-attachments/assets/71175e82-8f2e-465f-9d19-95e93942102d)
+![edit_employee_details_2](https://github.com/user-attachments/assets/84525f33-900c-4cdc-af36-7fd34a2a7338)
+
+
 
 ### Search Functionality
 
-![Search Feature](./empdashboard/screenshots/simple_search.JPG)
+![simple_search](https://github.com/user-attachments/assets/958e0046-a605-42cf-8ff6-257d1567ca5b)
 
-![Delete Feature](./empdashboard/screenshots/delete_employee.JPG)
+### Delete
+![delte_employee_2](https://github.com/user-attachments/assets/e9740a79-51e3-4cbc-b37f-ba0daab6a88d)
+
 
 ## 🧰 Features
 
@@ -55,7 +59,7 @@ A simple and responsive employee management dashboard built with **React** for t
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/Daniel-KK-world/MarkupAxis-emp_dashboard
+git clone https://github.com/Daniel-KK-world/MarkupAxis-emp_dashboard 
 
 cd employee-dashboard
 
