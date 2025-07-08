@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { data, Link } from 'react-router-dom';
 
-export default function EmpTable(){
-    const [employees, setEmployees] = useState("");
-    useEffect(() => {
-        fetch('http://localhost:8000/employees')
-            .then(response => response.json())
-            .then(data => {
-            console.log(data);
-            })
-            .catch(error => {
-            console.error("Fetch error:", error.message);
-            });
-        }, []);
+export default function EmpTable() {
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/employees')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setEmployees(data);
+      })
+      .catch(error => {
+        console.error("Fetch error:", error.message);
+      });
+  }, []);
     return(
         <div className ="container">
             <h2 className="text-center">Employee Records</h2>
