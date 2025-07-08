@@ -7,6 +7,7 @@ export default function CreateEmp(){
     const [name, setName] =useState("");
     const [department, setDepartment] =useState("");
     const [phone, setPhone] =useState("");
+    const [validation, setValidation] = useState(false);
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,23 +34,27 @@ export default function CreateEmp(){
                 console.error("Fetch error:", error.message);
                 alert("Something went wrong.");
             });
-
+        }
 
     return(
        <div className="container">
         <h2>Add New employee</h2>
         <form onSubmit={handleSubmit}>
             <label htmlFor="id">ID</label>
-            <input type="text" id="id" name="id"value={id} onChange={e=> setId(e.target.value)}></input>
+            <input type="text" id="id" name="id"value={id} required onChange={e=> setId(e.target.value)} onMouseDown={() => setValidation(true)}></input>
+            {id.length == 0 && validation && <span className='errorMsg'>Please Enter your ID:</span>}
 
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" value={name} onChange={e=> setName(e.target.value)}></input>
+            <input type="text" id="name" name="name" value={name} required onChange={e=> setName(e.target.value)} onMouseDown={() => setValidation(true)} ></input>
+            {name.length < 3 && validation && <span className='errorMsg'>Please Enter your name:</span>}
 
             <label htmlFor="department">Department</label>
-            <input type="text" id="department" name="department"value={department} onChange={e=> setDepartment(e.target.value)}></input>
+            <input type="text" id="department" name="department"value={department} required onChange={e=> setDepartment(e.target.value)} onMouseDown={() => setValidation(true)} ></input>
+            {department.length < 3 && validation && <span className='errorMsg'>Please Enter your department:</span>}
 
             <label htmlFor="phone">Phone</label>
-            <input type="text" id="phone" name="phone"value={phone} onChange={e=> setPhone(e.target.value)}></input>
+            <input type="text" id="phone" name="phone"value={phone}   required onChange={e=> setPhone(e.target.value)} onMouseDown={() => setValidation(true)} ></input>
+            {name.length < 10 && validation && <span className='errorMsg'>Please Enter a valid Phone number:</span>}
 
             <div>
             <button className="btn btn-save">Save</button>
@@ -57,5 +62,4 @@ export default function CreateEmp(){
             </div>
         </form>
        </div>
-    )
-}
+    )}

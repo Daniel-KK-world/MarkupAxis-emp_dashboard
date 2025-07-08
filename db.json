@@ -29,6 +29,12 @@
       "name": "Mohammed",
       "department": "HR",
       "phone": "0489478362"
+    },
+    {
+      "id": "6",
+      "name": "James ",
+      "department": "Accounting",
+      "phone": "1202839321d"
     }
   ]
 }
