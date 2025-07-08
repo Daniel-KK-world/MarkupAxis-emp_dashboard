@@ -10,11 +10,12 @@ A simple and responsive employee management dashboard built with **React** for t
 
 ### Employee Table (Dashboard)
 
-![Dashboard View](./empdashboard/screenshots/dashboard.JPG)
-
-### ➕ Add New Employee
 
 ![dashboard](https://github.com/user-attachments/assets/44539c57-8376-4c58-8768-6a240a444d68)
+
+### ➕ Add New Employee
+![add_employee](https://github.com/user-attachments/assets/98fcf6ba-fafb-4f0e-9b91-1d3f0c6bacd7)
+
 
 
 ### Edit Employee
@@ -29,6 +30,7 @@ A simple and responsive employee management dashboard built with **React** for t
 ![simple_search](https://github.com/user-attachments/assets/958e0046-a605-42cf-8ff6-257d1567ca5b)
 
 ### Delete
+
 ![delte_employee_2](https://github.com/user-attachments/assets/e9740a79-51e3-4cbc-b37f-ba0daab6a88d)
 
 
