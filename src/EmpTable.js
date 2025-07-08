@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function EmpTable(){
-    const [employees, setEmployees] = useState([]);
+    const [employees, setEmployees] = useState("");
     useEffect(() => {
         fetch('http://localhost:8000/employees')
             .then(response => response.json())
@@ -29,17 +29,21 @@ export default function EmpTable(){
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Daniel</td>
-                            <td>Technology</td>
-                            <td>1234567890</td>
+                        {
+                            employees && employees.map((item) => (
+                                <tr>
+                            <td>{item.id}</td>
+                            <td>{item.name}</td>
+                            <td>{item.department}</td>
+                            <td>{item.phone}</td>
                             <td>
                                 <a href="#" className="btn btn-info">View</a> 
                                 <a href="#" className="btn btn-primary">Edit</a>
                                 <a href="#" className="btn btn-danger">Delete</a>
                             </td>
                         </tr>
+                            )
+                            )}
                     </tbody>
                 </table>
             </div>
